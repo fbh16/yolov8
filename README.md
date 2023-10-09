@@ -15,11 +15,9 @@
     cd .. && catkin_make
     source devel/setup.bash
 
-<<<<<<< HEAD
 **2.** Modify the parameters in the **launch file**, such as the **model path**, **ROS topics**, **visualization options**, to suit your own requirements. 
-=======
+
 **2.** Modify the parameters in the **launch file**, such as the **model path**, **ROS topics**, **visualization options**, to suit your own requirements, download the YOLOv8 pretrained model at <https://github.com/ultralytics/assets/releases>. 
->>>>>>> 8a122b34771d105968348025fda907ff43cf6fcc
 
 **3.** 
 If you are using a **Python version lower than 3.8**, modify the code at **line 76** of the file(**ultralytics/ultralytics/hub/auth.py**):  
@@ -56,9 +54,3 @@ to:
 **single_class:** When you want to detect all classes, you don't need to input anything. When you want to display only a specific class, enter the name of that class, i.e., 'person'.  
 
 Some parameters, such as input image size and intersection over union (IoU), have default values set but can be modified as needed.
-
-<<<<<<< HEAD
-</p>
-=======
-</p>
->>>>>>> 8a122b34771d105968348025fda907ff43cf6fcc
