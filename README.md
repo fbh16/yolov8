@@ -32,7 +32,7 @@ to:
 **3.** Start the camera node or the rosbag, check the topics, and run the launch file.
 
     roslaunch yolov8_ros v8.launch
-    
+
 </p>
 
 ## Parameters

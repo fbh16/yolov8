@@ -3,15 +3,17 @@
     <node pkg="yolov8_ros" type="detect_ros.py" name="yolov8_ros" output="screen">
         <!-- typing "cpu" when using CPU -->
         <param name = "device"              value = "cuda" />
-        <param name = "model"               value = "/home/fbh/2023_goal/weights/v8/yolov8s.pt" />
-        <param name = "class_yaml"          value = "$(find yolov8_ros)/ultralytics/ultralytics/cfg/datasets/coco128.yaml" />
-        <param name = "view_image"          value = "false" />
+        <param name = "model"               value = "/home/fbh/2023_goal/weights/v8/minibot.pt" />
+        <param name = "class_yaml"          value = "$(find yolov8_ros)/ultralytics/ultralytics/cfg/datasets/tianbot_mini.yaml" />
+        <param name = "view_image"          value = "true" />
         <param name = "hide_label"          value = "false" />
-        <param name = "sub"                 value = "/usb_cam/image_raw" />   
-        <param name = "pub1"                 value = "/yolo/bbx" />
-        <param name = "pub2"                 value = "/yolo/img" />
+        <param name = "sub"                 value = "/front_cam/camera/image" />   
+        <param name = "pub1"                value = "/yolo/bbx" />
+        <param name = "pub2"                value = "/yolo/img" />
         <!-- if need typing "class name", else inputs nothing. -->
-        <param name = "single_class"        value = "person" /> 
-
+        <param name = "single_class"        value = "" /> 
+        <!-- set threshold of confidence and iou ratio -->
+        <param name = "conf_thresh"         value = "0.65" />
+        <param name = "iou_thresh"          value = "0.45" />
     </node>
 </launch>
