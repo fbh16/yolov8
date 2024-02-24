@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <launch>
+    <arg name = "view_image"         default="true"/>
+    <arg name = "conf_thresh"        default="0.8"/>
+    <arg name = "sub"                default="/front_cam/camera/image"/>
     <node pkg="yolov8_ros" type="detect_ros.py" name="yolov8_ros" output="screen">
         <!-- typing "cpu" when using CPU -->
         <param name = "device"              value = "cuda" />
-        <param name = "model"               value = "/home/fbh/2023_goal/weights/v8/minibot.pt" />
+        <param name = "model"               value = "/home/fbh/2023_goal/weights/v8/minibotm.pt" />
         <param name = "class_yaml"          value = "$(find yolov8_ros)/ultralytics/ultralytics/cfg/datasets/tianbot_mini.yaml" />
-        <param name = "view_image"          value = "true" />
+        <param name = "view_image"          value = "$(arg view_image)" />
         <param name = "hide_label"          value = "false" />
-        <param name = "sub"                 value = "/front_cam/camera/image" />   
+        <!-- <param name = "sub"                 value = "/front_cam/camera/image" /> -->
+        <param name = "sub"                 value = "$(arg sub)" />
         <param name = "pub1"                value = "/yolo/bbx" />
         <param name = "pub2"                value = "/yolo/img" />
         <!-- if need typing "class name", else inputs nothing. -->
-        <param name = "single_class"        value = "" /> 
+        <param name = "single_class"        value = "" />
         <!-- set threshold of confidence and iou ratio -->
-        <param name = "conf_thresh"         value = "0.65" />
-        <param name = "iou_thresh"          value = "0.45" />
+        <param name = "conf_thresh"         value = "$(arg conf_thresh)" />
+        <param name = "iou_thresh"          value = "0.5" />
     </node>
 </launch>
